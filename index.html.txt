@@ -1,0 +1,1544 @@
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohula Protection Services | Premium Security Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #d4af37;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f4f6f9;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: var(--text-light);
+            font-size: 0.85rem;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .top-bar .info a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .top-bar .info a:hover {
+            color: var(--secondary);
+        }
+
+        .top-bar .info i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--text-light);
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .hero h2 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s 0.3s forwards;
+        }
+
+        .hero .btn {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--text-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About & Values */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .about-box {
+            background: var(--bg-light);
+            padding: 40px;
+            border-left: 5px solid var(--secondary);
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-box h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .values-list {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-card i {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.3s;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--secondary);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .service-card:hover i {
+            color: var(--secondary);
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Service Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #fff;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            padding: 40px;
+            position: relative;
+            animation: modalIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            color: var(--secondary);
+        }
+
+        /* Features/Ops Model */
+        .bg-dark-section {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        .bg-dark-section .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .ops-card {
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .ops-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .ops-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Info Highlight */
+        .trust-banner {
+            background: var(--bg-light);
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        /* Stats Counter */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info i {
+            color: var(--secondary);
+            width: 30px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .contact-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .contact-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Submissions Table */
+        .submissions-section {
+            margin-top: 40px;
+            display: none;
+        }
+
+        .submissions-section.active {
+            display: block;
+        }
+
+        .submissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .submissions-table th,
+        .submissions-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .submissions-table th {
+            background: var(--primary);
+            color: white;
+        }
+
+        .submissions-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #050d1a;
+            color: #8c9ba5;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--secondary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+        }
+
+        .footer-links a {
+            color: #8c9ba5;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links a {
+            color: #8c9ba5;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: toastIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 300px;
+        }
+
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        .toast.success {
+            border-left-color: var(--success);
+        }
+
+        @keyframes toastIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes toastOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: row;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            nav.active {
+                max-height: 400px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .top-bar {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .top-bar .info a {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="info">
+            <a href="tel:0763440891"><i class="fas fa-phone"></i> 076 344 0891</a>
+            <a href="tel:0660550239"><i class="fas fa-phone"></i> 066 055 0239</a>
+            <a href="mailto:rohulaprotectionservices@gmail.com"><i class="fas fa-envelope"></i> rohulaprotectionservices@gmail.com</a>
+        </div>
+        <div>
+            <span><i class="fas fa-shield-alt" style="color: var(--secondary);"></i> PSIRA Compliant</span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <h1>ROHULA<span> PROTECTION</span></h1>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#operations" class="nav-link">Operations</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>World-Class <span>Security</span> & Protection Services</h2>
+        <p>Setting the benchmark in commercial, retail, and elite close protection across South Africa. 100% vetted personnel operating 24/7/365 to safeguard what matters most.</p>
+        <div>
+            <a href="#contact" class="btn">Request a Quote</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title reveal">
+            <h2>Who We Are</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-box reveal">
+                <h3>Our Vision</h3>
+                <p>To be the benchmark security service company, comparable to any best in the industry, meeting international standards in Security Services.</p>
+            </div>
+            <div class="about-box reveal">
+                <h3>Our Mission</h3>
+                <p>To be committed to offering reliable, cost-effective, customer-oriented security services by selecting the best security officers, training and retaining them to deliver quality service to our customers.</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 50px; color: var(--primary);">Our Core Values</h3>
+        <div class="values-list">
+            <div class="value-card reveal">
+                <i class="fas fa-handshake"></i>
+                <h4>Dignity & Respect</h4>
+            </div>
+            <div class="value-card reveal">
+                <i class="fas fa-gavel"></i>
+                <h4>Honesty & Loyalty</h4>
+            </div>
+            <div class="value-card reveal">
+                <i class="fas fa-user-tie"></i>
+                <h4>Professional Conduct</h4>
+            </div>
+            <div class="value-card reveal">
+                <i class="fas fa-star"></i>
+                <h4>Quality Customer Service</h4>
+            </div>
+            <div class="value-card reveal">
+                <i class="fas fa-balance-scale"></i>
+                <h4>Legislative Alignment</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Verification Banner -->
+    <div class="trust-banner reveal">
+        <h3>Vetted by SAPS. Regulated by PSIRA. Built on Trust.</h3>
+        <p style="max-width: 800px; margin: 10px auto 0; font-size: 0.95rem;">Before deployment, all Rohula personnel undergo rigorous internal screening, backed by the South African Police Service (SAPS) background checks. We enforce strict compliance with the Constitution, Labour Relations Act, and Firearms Control Act.</p>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" style="background: var(--bg-light);">
+        <div class="section-title reveal">
+            <h2>Our Service Offerings</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal" data-service="guarding">
+                <i class="fas fa-user-shield"></i>
+                <h3>Guarding</h3>
+                <p>24/7 vetted static guards tailored to asset security.</p>
+            </div>
+            <div class="service-card reveal" data-service="investigations">
+                <i class="fas fa-user-secret"></i>
+                <h3>Private Investigations</h3>
+                <p>Discreet, comprehensive internal and external investigations.</p>
+            </div>
+            <div class="service-card reveal" data-service="cctv">
+                <i class="fas fa-video"></i>
+                <h3>CCTV & Access Control</h3>
+                <p>Modern integrated digital electronic monitoring systems.</p>
+            </div>
+            <div class="service-card reveal" data-service="close-protection">
+                <i class="fas fa-id-badge"></i>
+                <h3>Close Protection</h3>
+                <p>Elite VIP and executive escort protective units.</p>
+            </div>
+            <div class="service-card reveal" data-service="armed-reaction">
+                <i class="fas fa-car-crash"></i>
+                <h3>Armed Reaction</h3>
+                <p>Rapid, high-tactical response fleet operations.</p>
+            </div>
+            <div class="service-card reveal" data-service="events">
+                <i class="fas fa-users"></i>
+                <h3>Events & Crowd Management</h3>
+                <p>Comprehensive safety blueprints aligned with EMS & SAPS regulations.</p>
+            </div>
+            <div class="service-card reveal" data-service="k9">
+                <i class="fas fa-paw"></i>
+                <h3>Dog Handlers</h3>
+                <p>K9 support structures for active patrolling defenses.</p>
+            </div>
+            <div class="service-card reveal" data-service="screening">
+                <i class="fas fa-search"></i>
+                <h3>Pre-Employment Screening</h3>
+                <p>In-depth background and criminal history evaluations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <h2 id="modalTitle" style="color: var(--primary); margin-bottom: 15px;"></h2>
+            <div id="modalContent"></div>
+            <a href="#contact" class="btn" style="margin-top: 20px;" onclick="closeModal()">Request This Service</a>
+        </div>
+    </div>
+
+    <!-- Operational Model Section -->
+    <section id="operations" class="bg-dark-section">
+        <div class="section-title reveal">
+            <h2>Our Operational Model</h2>
+        </div>
+        <p style="text-align: center; max-width: 700px; margin: -30px auto 40px; color: #a0aec0;">
+            We operate an active workforce database of over 180 rigorously vetted security officers managed by seasoned leaders with at least 2 years of industry tenure.
+        </p>
+        <div class="ops-grid">
+            <div class="ops-card reveal">
+                <h3>01</h3>
+                <p>Contingency Planning</p>
+            </div>
+            <div class="ops-card reveal">
+                <h3>02</h3>
+                <p>Hourly Supervisor Checks</p>
+            </div>
+            <div class="ops-card reveal">
+                <h3>03</h3>
+                <p>Strict SLA Maintenance</p>
+            </div>
+            <div class="ops-card reveal">
+                <h3>04</h3>
+                <p>Real-time Incident Reports</p>
+            </div>
+        </div>
+
+        <div class="stats-grid reveal">
+            <div class="stat-card">
+                <div class="stat-number" data-target="180">0</div>
+                <div class="stat-label">Vetted Officers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Hours / 7 Days</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">% Compliance</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="365">0</div>
+                <div class="stat-label">Days Coverage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Standards Section -->
+    <section>
+        <div class="section-title reveal">
+            <h2>Elite Recruitment Standards</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="margin-bottom: 20px; text-align: center;">Corporate clients require bulletproof compliance. Our officers meet strict prerequisites before setting foot on your site:</p>
+            <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; background: var(--bg-light); border-radius: 4px;">
+                <li class="reveal"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Minimum Grade 12 & PSIRA Registered</li>
+                <li class="reveal"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Comprehensive Criminal Record Clearances</li>
+                <li class="reveal"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Aptitude Testing & Internal Induction</li>
+                <li class="reveal"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Fire-Fighting & First Aid Proficient</li>
+                <li class="reveal"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Fluent in English & Official Languages</li>
+                <li class="reveal"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Managers hold relevant Tertiary Degrees</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--bg-light);">
+        <div class="section-title reveal">
+            <h2>Partner With Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info reveal">
+                <h3>Get In Touch</h3>
+                <p style="margin-bottom: 30px;">Let us customize a comprehensive security strategy that meets your operational and financial goals.</p>
+                
+                <p><i class="fas fa-map-marker-alt"></i> 63 Kruger Street, Makhado, 0920</p>
+                <p><i class="fas fa-phone"></i> 076 344 0891 / 066 055 0239</p>
+                <p><i class="fas fa-envelope"></i> rohulaprotectionservices@gmail.com</p>
+                <p><i class="fas fa-clock"></i> 24 Hours Operational Control Room</p>
+                
+                <div style="margin-top: 30px;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Business Hours</h4>
+                    <p><i class="fas fa-door-open"></i> Monday - Friday: 08:00 - 17:00</p>
+                    <p><i class="fas fa-phone-volume"></i> Emergency Line: 24/7/365</p>
+                </div>
+            </div>
+            <div class="contact-form reveal">
+                <form id="contactForm">
+                    <div class="form-message" id="formMessage"></div>
+                    <input type="text" id="formName" placeholder="Your Name / Corporate Entity" required>
+                    <input type="email" id="formEmail" placeholder="Email Address" required>
+                    <input type="tel" id="formPhone" placeholder="Contact Phone Number" required>
+                    <select id="formService" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                        <option value="">Select Service Interest (Optional)</option>
+                        <option value="Guarding">Guarding</option>
+                        <option value="Private Investigations">Private Investigations</option>
+                        <option value="CCTV & Access Control">CCTV & Access Control</option>
+                        <option value="Close Protection">Close Protection</option>
+                        <option value="Armed Reaction">Armed Reaction</option>
+                        <option value="Events & Crowd Management">Events & Crowd Management</option>
+                        <option value="Dog Handlers">Dog Handlers</option>
+                        <option value="Pre-Employment Screening">Pre-Employment Screening</option>
+                    </select>
+                    <textarea id="formMessageText" rows="5" placeholder="Tell us about your security requirements..." required></textarea>
+                    <button type="submit" id="submitBtn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Submissions Viewer (Hidden by default, shown when data exists) -->
+        <div class="submissions-section" id="submissionsSection">
+            <div class="section-title" style="margin-top: 60px;">
+                <h2>Recent Submissions</h2>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="submissions-table" id="submissionsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Service</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="submissionsBody"></tbody>
+                </table>
+            </div>
+            <button class="btn" style="margin-top: 20px; background: var(--danger); border-color: var(--danger); color: white;" onclick="clearSubmissions()">
+                <i class="fas fa-trash"></i> Clear All Submissions
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#operations">Operations</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <p>&copy; 2026 Rohula Protection Services. All Rights Reserved. Fully Compliant with COIDA, UIF, & PSIRA.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Active Navigation Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Counter Animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let countersAnimated = false;
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                stat.textContent = Math.floor(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                stat.textContent = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelector('.stats-grid') && counterObserver.observe(document.querySelector('.stats-grid'));
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Toast Notification System
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'toastOut 0.3s ease forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+
+        // Load existing submissions
+        function loadSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('rohula_submissions') || '[]');
+            const tbody = document.getElementById('submissionsBody');
+            const section = document.getElementById('submissionsSection');
+            
+            if (submissions.length > 0) {
+                section.classList.add('active');
+                tbody.innerHTML = submissions.map(sub => `
+                    <tr>
+                        <td>${sub.date}</td>
+                        <td>${sub.name}</td>
+                        <td>${sub.email}</td>
+                        <td>${sub.phone}</td>
+                        <td>${sub.service || 'N/A'}</td>
+                        <td>${sub.message}</td>
+                    </tr>
+                `).join('');
+            } else {
+                section.classList.remove('active');
+            }
+        }
+
+        loadSubmissions();
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('formName').value.trim();
+            const email = document.getElementById('formEmail').value.trim();
+            const phone = document.getElementById('formPhone').value.trim();
+            const service = document.getElementById('formService').value;
+            const message = document.getElementById('formMessageText').value.trim();
+            
+            // Validation
+            if (!name || !email || !phone || !message) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showToast('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Simulate loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+            
+            setTimeout(() => {
+                const submission = {
+                    id: Date.now(),
+                    date: new Date().toLocaleString(),
+                    name,
+                    email,
+                    phone,
+                    service,
+                    message
+                };
+                
+                const submissions = JSON.parse(localStorage.getItem('rohula_submissions') || '[]');
+                submissions.unshift(submission);
+                localStorage.setItem('rohula_submissions', JSON.stringify(submissions));
+                
+                // Reset form
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Request';
+                
+                showToast('Thank you for reaching out! We will contact you shortly.', 'success');
+                loadSubmissions();
+            }, 1500);
+        });
+
+        function clearSubmissions() {
+            if (confirm('Are you sure you want to clear all submissions?')) {
+                localStorage.removeItem('rohula_submissions');
+                loadSubmissions();
+                showToast('All submissions cleared.', 'success');
+            }
+        }
+
+        // Service Modal
+        const serviceModal = document.getElementById('serviceModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        const modalClose = document.getElementById('modalClose');
+
+        const serviceDetails = {
+            'guarding': {
+                title: 'Guarding Services',
+                content: `
+                    <p>Our static guarding services provide round-the-clock protection for your assets, premises, and personnel. All guards are PSIRA-registered and undergo continuous training.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Key Features:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>24/7 on-site static guarding</li>
+                        <li>Access control and visitor management</li>
+                        <li>Perimeter patrol and monitoring</li>
+                        <li>Incident reporting and escalation</li>
+                        <li>Customized post orders per client</li>
+                    </ul>
+                `
+            },
+            'investigations': {
+                title: 'Private Investigations',
+                content: `
+                    <p>Our investigation unit handles sensitive internal and external matters with absolute discretion and professionalism.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Services Include:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Corporate fraud investigations</li>
+                        <li>Background verification</li>
+                        <li>Surveillance operations</li>
+                        <li>Missing person tracing</li>
+                        <li>Evidence collection and documentation</li>
+                    </ul>
+                `
+            },
+            'cctv': {
+                title: 'CCTV & Access Control',
+                content: `
+                    <p>Integrated electronic security solutions combining cutting-edge surveillance technology with intelligent access management.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Solutions:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>HD IP camera systems</li>
+                        <li>Remote monitoring capabilities</li>
+                        <li>Biometric access control</li>
+                        <li>Alarm integration</li>
+                        <li>Video analytics and AI detection</li>
+                    </ul>
+                `
+            },
+            'close-protection': {
+                title: 'Close Protection',
+                content: `
+                    <p>Elite protective services for VIPs, executives, and high-profile individuals requiring discrete, professional security.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Capabilities:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Executive protection details</li>
+                        <li>Residential security teams</li>
+                        <li>Travel and route planning</li>
+                        <li>Threat assessment and intelligence</li>
+                        <li>Armed and unarmed details available</li>
+                    </ul>
+                `
+            },
+            'armed-reaction': {
+                title: 'Armed Reaction',
+                content: `
+                    <p>Rapid response units equipped and trained to handle high-risk situations with tactical precision.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Response Features:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Armed response vehicles</li>
+                        <li>GPS-tracked fleet</li>
+                        <li>Average response time under 15 minutes</li>
+                        <li>24/7 control room dispatch</li>
+                        <li>SAPS liaison and case support</li>
+                    </ul>
+                `
+            },
+            'events': {
+                title: 'Events & Crowd Management',
+                content: `
+                    <p>Comprehensive security planning and execution for events of any scale, from corporate functions to large public gatherings.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Event Services:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Risk assessment and safety plans</li>
+                        <li>Crowd control and flow management</li>
+                        <li>VIP escort and backstage security</li>
+                        <li>Emergency medical coordination</li>
+                        <li>SAPS and EMS compliance</li>
+                    </ul>
+                `
+            },
+            'k9': {
+                title: 'Dog Handlers (K9 Unit)',
+                content: `
+                    <p>Highly trained K9 teams providing enhanced detection and deterrence capabilities for patrol and specialized operations.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">K9 Capabilities:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Patrol and area clearance</li>
+                        <li>Narcotics detection</li>
+                        <li>Explosives detection</li>
+                        <li>Tracking and search operations</li>
+                        <li>Handler-dog certification maintained</li>
+                    </ul>
+                `
+            },
+            'screening': {
+                title: 'Pre-Employment Screening',
+                content: `
+                    <p>Thorough vetting services to ensure your workforce integrity and compliance with industry standards.</p>
+                    <h4 style="color: var(--primary); margin: 15px 0 10px;">Screening Checks:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Criminal record verification</li>
+                        <li>Credit and financial checks</li>
+                        <li>Qualification verification</li>
+                        <li>Reference and employment history</li>
+                        <li>Identity and documentation validation</li>
+                    </ul>
+                `
+            }
+        };
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const service = card.getAttribute('data-service');
+                const details = serviceDetails[service];
+                if (details) {
+                    modalTitle.textContent = details.title;
+                    modalContent.innerHTML = details.content;
+                    serviceModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeModal() {
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        serviceModal.addEventListener('click', (e) => {
+            if (e.target === serviceModal) closeModal();
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize
+        showToast('Welcome to Rohula Protection Services!', 'success');
+    </script>
+</body>
+</html>'''
+
+# Save to output directory
+with open('/mnt/agents/output/rohula_protection_services.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"Size: {len(html_content)} characters")
+
+File saved successfully!
+Size: 52501 characters
+<>:1315: SyntaxWarning: invalid escape sequence '\s'
+<>:1315: SyntaxWarning: invalid escape sequence '\s'
+/tmp/ipykernel_334/1539644158.py:1315: SyntaxWarning: invalid escape sequence '\s'
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+import shutil
+
+# Copy logo to output directory
+shutil.copy('/mnt/agents/upload/13710.jpg', '/mnt/agents/output/logo.jpg')
+print("Logo copied to output directory")
