@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohula Protection Services | Premium Security Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #d4af37;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f4f6f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: var(--text-light);
+            font-size: 0.85rem;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .top-bar .info a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .top-bar .info i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--text-light);
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            border: 2px solid var(--secondary);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--text-light);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About & Values */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .about-box {
+            background: var(--bg-light);
+            padding: 40px;
+            border-left: 5px solid var(--secondary);
+            border-radius: 4px;
+        }
+
+        .about-box h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .values-list {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        .value-card i {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.3s;
+            border-radius: 4px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--secondary);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Features/Ops Model */
+        .bg-dark-section {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        .bg-dark-section .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .ops-card {
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .ops-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Info Highlight */
+        .trust-banner {
+            background: var(--bg-light);
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info i {
+            color: var(--secondary);
+            width: 30px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .contact-form button:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: #050d1a;
+            color: #8c9ba5;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="info">
+            <a href="tel:0763440891"><i class="fas fa-phone"></i> 076 344 0891</a>
+            <a href="tel:0660550239"><i class="fas fa-phone"></i> 066 055 0239</a>
+            <a href="mailto:rohulaprotectionservices@gmail.com"><i class="fas fa-envelope"></i> rohulaprotectionservices@gmail.com</a>
+        </div>
+        <div>
+            <span><i class="fas fa-shield-alt" style="color: var(--secondary);"></i> PSIRA Compliant</span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <h1>ROHULA<span> PROTECTION</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#operations">Operations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>World-Class Security & Protection Services</h2>
+        <p>Setting the benchmark in commercial, retail, and elite close protection across South Africa. 100% vetted personnel operating 24/7/365 to safeguard what matters most.</p>
+        <a href="#contact" class="btn">Request a Quote</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title">
+            <h2>Who We Are</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-box">
+                <h3>Our Vision</h3>
+                <p>To be the benchmark security service company, comparable to any best in the industry, meeting international standards in Security Services.</p>
+            </div>
+            <div class="about-box">
+                <h3>Our Mission</h3>
+                <p>To be committed to offering reliable, cost-effective, customer-oriented security services by selecting the best security officers, training and retaining them to deliver quality service to our customers.</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 50px; color: var(--primary);">Our Core Values</h3>
+        <div class="values-list">
+            <div class="value-card"><i class="fas fa-handshake"></i><h4>Dignity & Respect</h4></div>
+            <div class="value-card"><i class="fas fa-gavel"></i><h4>Honesty & Loyalty</h4></div>
+            <div class="value-card"><i class="fas fa-user-tie"></i><h4>Professional Conduct</h4></div>
+            <div class="value-card"><i class="fas fa-star"></i><h4>Quality Customer Service</h4></div>
+            <div class="value-card"><i class="fas fa-balance-scale"></i><h4>Legislative Alignment</h4></div>
+        </div>
+    </section>
+
+    <!-- Trust & Verification Banner -->
+    <div class="trust-banner">
+        <h3>Vetted by SAPS. Regulated by PSIRA. Built on Trust.</h3>
+        <p style="max-width: 800px; margin: 10px auto 0; font-size: 0.95rem;">Before deployment, all Rohula personnel undergo rigorous internal screening, backed by the South African Police Service (SAPS) background checks. We enforce strict compliance with the Constitution, Labour Relations Act, and Firearms Control Act.</p>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" style="background: var(--bg-light);">
+        <div class="section-title">
+            <h2>Our Service Offerings</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-user-shield"></i><h3>Guarding</h3><p>24/7 vetted static guards tailored to asset security.</p></div>
+            <div class="service-card"><i class="fas fa-user-secret"></i><h3>Private Investigations</h3><p>Discreet, comprehensive internal and external investigations.</p></div>
+            <div class="service-card"><i class="fas fa-video"></i><h3>CCTV & Access Control</h3><p>Modern integrated digital electronic monitoring systems.</p></div>
+            <div class="service-card"><i class="fas fa-id-badge"></i><h3>Close Protection</h3><p>Elite VIP and executive escort protective units.</p></div>
+            <div class="service-card"><i class="fas fa-car-crash"></i><h3>Armed Reaction</h3><p>Rapid, high-tactical response fleet operations.</p></div>
+            <div class="service-card"><i class="fas fa-users"></i><h3>Events & Crowd Management</h3><p>Comprehensive safety blueprints aligned with EMS & SAPS regulations.</p></div>
+            <div class="service-card"><i class="fas fa-paw"></i><h3>Dog Handlers</h3><p>K9 support structures for active patrolling defenses.</p></div>
+            <div class="service-card"><i class="fas fa-search"></i><h3>Pre-Employment Screening</h3><p>In-depth background and criminal history evaluations.</p></div>
+        </div>
+    </section>
+
+    <!-- Operational Model Section -->
+    <section id="operations" class="bg-dark-section">
+        <div class="section-title">
+            <h2>Our Operational Model</h2>
+        </div>
+        <p style="text-align: center; max-width: 700px; margin: -30px auto 40px; color: #a0aec0;">
+            We operate an active workforce database of over 180 rigorously vetted security officers managed by seasoned leaders with at least 2 years of industry tenure.
+        </p>
+        <div class="ops-grid">
+            <div class="ops-card"><h3>01</h3><p>Contingency Planning</p></div>
+            <div class="ops-card"><h3>02</h3><p>Hourly Supervisor Checks</p></div>
+            <div class="ops-card"><h3>03</h3><p>Strict SLA Maintenance</p></div>
+            <div class="ops-card"><h3>04</h3><p>Real-time Incident Reports</p></div>
+        </div>
+    </section>
+
+    <!-- Recruitment Standards Section -->
+    <section>
+        <div class="section-title">
+            <h2>Elite Recruitment Standards</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="margin-bottom: 20px; text-align: center;">Corporate clients require bulletproof compliance. Our officers meet strict prerequisites before setting foot on your site:</p>
+            <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; background: var(--bg-light); border-radius: 4px;">
+                <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Minimum Grade 12 & PSIRA Registered</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Comprehensive Criminal Record Clearances</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Aptitude Testing & Internal Induction</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Fire-Fighting & First Aid Proficient</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Fluent in English & Official Languages</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> Managers hold relevant Tertiary Degrees</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--bg-light);">
+        <div class="section-title">
+            <h2>Partner With Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p style="margin-bottom: 30px;">Let us customize a comprehensive security strategy that meets your operational and financial goals.</p>
+                
+                <p><i class="fas fa-map-marker-alt"></i> 63 Kruger Street, Makhado, 0920</p>
+                <p><i class="fas fa-phone"></i> 076 344 0891 / 066 055 0239</p>
+                <p><i class="fas fa-envelope"></i> rohulaprotectionservices@gmail.com</p>
+                <p><i class="fas fa-clock"></i> 24 Hours Operational Control Room</p>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST" onsubmit="alert('Thank you for reaching out to Rohula Protection Services. We will contact you shortly.'); return false;">
+                    <input type="text" placeholder="Your Name / Corporate Entity" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Contact Phone Number" required>
+                    <textarea rows="5" placeholder="Tell us about your security requirements..." required></textarea>
+                    <button type="submit">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Rohula Protection Services. All Rights Reserved. Fully Compliant with COIDA, UIF, & PSIRA.</p>
+    </footer>
+
+</body>
+</html>
